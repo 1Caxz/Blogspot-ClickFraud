@@ -3,6 +3,13 @@
   "version": "0.0.1",
   "title": "Blogspot-ClickFraud",
   "description": "A jQuery plugin click fraud detection for blogspot.",
+  "main": "index.js",
+  "scripts": {
+     "test": "echo \"Error no test specified\" && exit 1"
+  },
+  "engines": {
+      "node": ">=0.10"
+  },
   "keywords": [
     "jquery-plugin",
     "ecosystem:jquery",
@@ -14,19 +21,14 @@
     "click-fraud"
   ],
   "homepage": "https://github.com/icaksama/Blogspot-ClickFraud",
-  "author": {
-    "name": "icaksama",
-    "url": "https://www.icaksama.com"
-  },
+  "author":  "icaksama <icaksama@gmail.com> (https://www.icaksama.com)",
   "bugs": "https://github.com/icaksama/Blogspot-ClickFraud/issues",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/icaksama/Blogspot-ClickFraud/blob/master/LICENSE-MIT"
-    }
-  ],
+  "licenses": "MIT",
   "dependencies": {
     "jquery": ">=1.5"
   },
-  "repository": "https://github.com/icaksama/Blogspot-ClickFraud"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/icaksama/Blogspot-ClickFraud.git"
+  }
 }
