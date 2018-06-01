@@ -5,7 +5,7 @@
   "description": "A jQuery plugin click fraud detection for blogspot.",
   "main": "index.js",
   "scripts": {
-     "test": "echo \"Error no test specified\" && exit 1"
+     "build": "npm run"
   },
   "engines": {
       "node": ">=0.10"
