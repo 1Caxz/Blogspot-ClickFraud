@@ -11,5 +11,4 @@ if(c.indexOf(name)===0){return c.substring(name.length,c.length)}}
 return""}
 function isCookieExist(cname){var username=getCookie(cname);if(username!=""){return!0}else{return!1}}
 var clickCount=0;if(isCookieExist("icaksamaAdsClick")){clickCount=parseInt(getCookie("icaksamaAdsClick"),10)}else{setCookie("icaksamaAdsClick","0",1)}
-if(clickCount>=2){$('iframe').remove()}else{$('iframe').iframeTracker({blurCallback:function(event){clickCount++;setCookie("icaksamaAdsClick",""+clickCount+"",1);var clickCountAfter=parseInt(getCookie("icaksamaAdsClick"),10);if(clickCountAfter>=2){iframe.parentNode.removeChild(iframe)}
-alert(getCookie("icaksamaAdsClick"))}})}
+if(clickCount>=2){$('iframe').remove()}else{$('iframe').iframeTracker({blurCallback:function(event){clickCount++;setCookie("icaksamaAdsClick",""+clickCount+"",1);var clickCountAfter=parseInt(getCookie("icaksamaAdsClick"),10);if(clickCountAfter>=2){$('iframe').remove()}}})}
