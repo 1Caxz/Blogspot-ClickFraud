@@ -4,6 +4,8 @@
   "title": "Blogspot-ClickFraud",
   "description": "A jQuery plugin click fraud detection for blogspot.",
   "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
     "jquery",
     "plugin",
     "blogspot",
@@ -26,6 +28,5 @@
   "dependencies": {
     "jquery": ">=1.5"
   },
-  "docs": "https://github.com/icaksama/Blogspot-ClickFraud/blob/master/README.md",
-  "demo": "http://blog.sirlana.com/blogspot-clickfraud/"
+  "repository": "https://github.com/icaksama/Blogspot-ClickFraud"
 }
