@@ -23,7 +23,7 @@
   "homepage": "https://github.com/icaksama/Blogspot-ClickFraud",
   "author":  "icaksama <icaksama@gmail.com> (https://www.icaksama.com)",
   "bugs": "https://github.com/icaksama/Blogspot-ClickFraud/issues",
-  "licenses": "MIT",
+  "licenses": "UNLICENSED",
   "dependencies": {
     "jquery": ">=1.5"
   },
