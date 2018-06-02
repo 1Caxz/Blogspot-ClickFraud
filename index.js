@@ -9,6 +9,10 @@ function setCookie(cname,cvalue,exdays){var d=new Date();d.setTime(d.getTime()+(
 function getCookie(cname){var name=cname+"=";var decodedCookie=decodeURIComponent(document.cookie);var ca=decodedCookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)===' '){c=c.substring(1)}
 if(c.indexOf(name)===0){return c.substring(name.length,c.length)}}
 return""}
+function setCookie(cname,cvalue,exdays){var d=new Date();d.setTime(d.getTime()+(exdays*24*60*60*1000));var expires="expires="+d.toUTCString();document.cookie=cname+"="+cvalue+";"+expires+";path=/"}
+function getCookie(cname){var name=cname+"=";var decodedCookie=decodeURIComponent(document.cookie);var ca=decodedCookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)===' '){c=c.substring(1)}
+if(c.indexOf(name)===0){return c.substring(name.length,c.length)}}
+return""}
 function isCookieExist(cname){var username=getCookie(cname);if(username!=""){return!0}else{return!1}}
 jQuery(document).ready(function(){var clickCount=0;if(isCookieExist(idAdsense)){clickCount=parseInt(getCookie(idAdsense),10)}else{setCookie(idAdsense,"0",1)}
-if(clickCount>=limitClick){jQuery('#'+idAdsense).remove()}else{jQuery('#'+idAdsense+' iframe').iframeTracker({blurCallback:function(event){clickCount++;setCookie(idAdsense,""+clickCount+"",1);var clickCountAfter=parseInt(getCookie(idAdsense),10);if(clickCountAfter>=limitClick){setTimeout(function(){jQuery('#'+idAdsense).remove()},1000)}}})}})
+if(clickCount>=limitClick){jQuery('#'+idAdsense).remove()}else{jQuery('#'+idAdsense+' iframe').iframeTracker({blurCallback:function(event){clickCount++;setCookie(idAdsense,""+clickCount+"",1);setTimeout(function(){this._overId.remove()},500)}})}})
