@@ -11,5 +11,4 @@ if(c.indexOf(name)===0){return c.substring(name.length,c.length)}}
 return""}
 function isCookieExist(cname){var username=getCookie(cname);if(username!=""){return!0}else{return!1}}
 jQuery(document).ready(function(){var clickCount=0;if(isCookieExist(idAdsense)){clickCount=parseInt(getCookie(idAdsense),10)}else{setCookie(idAdsense,"0",1)}
-if(clickCount>=limitClick){jQuery('#'+idAdsense).remove()}else{jQuery('iframe').iframeTracker({blurCallback:function(event){clickCount++;setCookie(idAdsense,""+clickCount+"",1);var clickCountAfter=parseInt(getCookie(idAdsense),10);if(clickCountAfter>=limitClick){setTimeout(function(){jQuery('#'+idAdsense).remove()},1000)}
-alert(getCookie(idAdsense))}})}})
+if(clickCount>=limitClick){jQuery('#'+idAdsense).remove()}else{jQuery('iframe').iframeTracker({blurCallback:function(event){clickCount++;setCookie(idAdsense,""+clickCount+"",1);var clickCountAfter=parseInt(getCookie(idAdsense),10);if(clickCountAfter>=limitClick){setTimeout(function(){jQuery('#'+idAdsense).remove()},1000)}}})}})
