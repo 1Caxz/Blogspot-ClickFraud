@@ -42,9 +42,9 @@ jQuery(document).ready(function() {
         setCookie(idAdsense, "0", 1);
     }
     if (clickCount >= limitClick) {
-        $('#'+idAdsense).remove();
+        jQuery('#'+idAdsense).remove();
     } else {
-            $('iframe').iframeTracker({
+            jQuery('iframe').iframeTracker({
                     blurCallback: function(event) {
                         clickCount++;
                         setCookie(idAdsense, ""+clickCount+"", 1);
