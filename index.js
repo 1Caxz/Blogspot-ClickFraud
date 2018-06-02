@@ -5,58 +5,10 @@ $(window).focus();$(window).blur(function(e){$.iframeTracker.windowLoseFocus(e)}
 $(target).each(function(index){$(this).unbind("mouseover",$.iframeTracker.mouseoverListener).unbind("mouseout",$.iframeTracker.mouseoutListener)});var nullFilter=function(value){return value===null?!1:!0};for(var i in this.handlersList){for(var j in this.handlersList[i].target){if($.inArray(this.handlersList[i].target[j],target)!==-1){this.handlersList[i].target[j]=null}}
 this.handlersList[i].target=this.handlersList[i].target.filter(nullFilter);if(this.handlersList[i].target.length===0){this.handlersList[i]=null}}
 this.handlersList=this.handlersList.filter(nullFilter)},mouseoverListener:function(e){e.data.handler.over=!0;$.iframeTracker.retrieveFocus();try{e.data.handler.overCallback(this,e)}catch(ex){}},mouseoutListener:function(e){e.data.handler.over=!1;$.iframeTracker.retrieveFocus();try{e.data.handler.outCallback(this,e)}catch(ex){}},retrieveFocus:function(){if(document.activeElement&&document.activeElement.tagName==="IFRAME"){$.iframeTracker.focusRetriever.focus();$.iframeTracker.focusRetrieved=!0}},windowLoseFocus:function(e){for(var i in this.handlersList){if(this.handlersList[i].over===!0){try{this.handlersList[i].blurCallback(e)}catch(ex){}}}}};$(document).ready(function(){$.iframeTracker.init()})})(jQuery)
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) === ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-function isCookieExist(cname) {
-    var username = getCookie(cname);
-    if (username != "") {
-        return true;
-    } else {
-        return false;
-    }
-}
-jQuery(document).ready(function() {
-    var clickCount = 0;
-    if (isCookieExist(idAdsense)) {
-        clickCount = parseInt(getCookie(idAdsense), 10);
-    } else {
-        setCookie(idAdsense, "0", 1);
-    }
-    if (clickCount >= limitClick) {
-        jQuery('#'+idAdsense).remove();
-    } else {
-            jQuery('iframe').iframeTracker({
-                    blurCallback: function(event) {
-                        if ($(this).parents('#'+idAdsense).length != 0) {
-                            clickCount++;
-                            setCookie(idAdsense, ""+clickCount+"", 1);
-                            var clickCountAfter = parseInt(getCookie(idAdsense), 10);
-                            if (clickCountAfter >= limitClick) {
-                                setTimeout(function(){
-                                    jQuery('#'+idAdsense).remove();
-                                }, 1000);
-                            }
-                        }
-                    }
-            });
-    }
-});
+function setCookie(cname,cvalue,exdays){var d=new Date();d.setTime(d.getTime()+(exdays*24*60*60*1000));var expires="expires="+d.toUTCString();document.cookie=cname+"="+cvalue+";"+expires+";path=/"}
+function getCookie(cname){var name=cname+"=";var decodedCookie=decodeURIComponent(document.cookie);var ca=decodedCookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i];while(c.charAt(0)===' '){c=c.substring(1)}
+if(c.indexOf(name)===0){return c.substring(name.length,c.length)}}
+return""}
+function isCookieExist(cname){var username=getCookie(cname);if(username!=""){return!0}else{return!1}}
+jQuery(document).ready(function(){var clickCount=0;if(isCookieExist(idAdsense)){clickCount=parseInt(getCookie(idAdsense),10)}else{setCookie(idAdsense,"0",1)}
+if(clickCount>=limitClick){jQuery('#'+idAdsense).remove()}else{jQuery('iframe').iframeTracker({blurCallback:function(event){if($(this).parents('#'+idAdsense).length!=0){clickCount++;setCookie(idAdsense,""+clickCount+"",1);var clickCountAfter=parseInt(getCookie(idAdsense),10);if(clickCountAfter>=limitClick){setTimeout(function(){jQuery('#'+idAdsense).remove()},1000)}}}})}})
